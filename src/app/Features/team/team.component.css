@@ -1,0 +1,24 @@
+@import "primeflex/primeflex.css";
+
+      .card-stats {
+      transition: all 0.3s ease-in-out;
+    }
+    .card-stats:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .icon-shape {
+      font-size: 1.3rem;
+      padding: 0.6rem;
+    }
+    .card-title {
+      font-weight: lighter;
+    }
+    .h2 {
+      font-size: 1.6rem;
+    }
+    .stat-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }

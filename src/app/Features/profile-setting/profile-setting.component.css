@@ -1,0 +1,78 @@
+.gradient-custom-2 {
+  background: white;
+}
+
+.profile-bg {
+  background: url('/assets/profile-bg.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100px;
+}
+
+.avatar-xl {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid white;
+  background: url('/assets/avatar-1.jpg') no-repeat center center;
+  background-size: cover;
+  margin-top: -75px;
+}
+
+.card-stats {
+  transition: all 0.3s ease-in-out;
+}
+
+.card-stats:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon-shape {
+  font-size: 1.3rem;
+  padding: 0.6rem;
+}
+
+.card-title {
+  font-weight: lighter;
+}
+
+.h2 {
+  font-size: 1.6rem;
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn-primary, .btn-secondary, .btn-info {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+@media (min-width: 768px) {
+  .button-group {
+    flex-direction: row;
+  }
+}

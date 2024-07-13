@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <div class="row g-0" *ngFor="let plan of subscriptions; let i = index" [class.mb-3]="i !== subscriptions.length - 1" style="border: 1px solid #ccc; border-radius: 10px; padding:   0px;">
+      <div class="col-md-9 left-column">
+        <h3>{{plan.planName}}</h3>
+        <p>
+        <span class="tick">&#10003;</span> Duration: {{ plan.duration === '0' ? 'Forever' : plan.duration + ' days' }}
+        <span class="tick">&#10003;</span> Daily Earnings: {{ plan.dailyEarnings }} $
+        </p>
+      </div>
+      <div class="col-md-3 right-column d-flex flex-column  align-items-center">
+        <div>
+        <h3>${{ plan.cost }}</h3>
+        </div>
+        <div class="w-100">
+          <button class="btn btn-buy w-100" (click)="activatePlan(plan._id)">Join now</button>
+        </div>
+      </div>
+    </div>
+  </div>

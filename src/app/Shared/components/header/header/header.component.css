@@ -1,0 +1,84 @@
+.custom-navbar {
+  background-color: #fff; /* White background */
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 40px; /* Adjust based on your logo size */
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+  margin-right: 20px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #6c757d; /* Slightly lighter color on hover */
+}
+
+.custom-signup-btn {
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-signup-btn:hover {
+  background-color: #343a40; /* Slightly lighter color on hover */
+  color: white;
+}
+
+.custom-signin-btn {
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-signin-btn:hover {
+  background-color: #f8f9fa; /* Slightly lighter color on hover */
+  color: black;
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 576px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin-bottom: 10px;
+  }
+
+  .navbar-nav .nav-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .navbar-nav .custom-signin-btn,
+  .navbar-nav .custom-signup-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-nav.ms-auto {
+    justify-content: center;
+  }
+}
