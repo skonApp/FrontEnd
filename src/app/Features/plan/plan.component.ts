@@ -2,11 +2,13 @@ import { AuthService } from './../../Core/services/Auth/auth.service';
 import { HeaderService } from '../../Core/services/header/header.service';
 import { SubscriptionService } from './../../Core/services/subscription/subscription.service';
 import { Component } from '@angular/core';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-plan',
   templateUrl: './plan.component.html',
   styleUrl: './plan.component.css',
+  providers: [MessageService],
 })
 export class PlanComponent {
   subscriptions: any;
@@ -14,7 +16,8 @@ export class PlanComponent {
   constructor(
     private subscriptionService: SubscriptionService,
     private headerService: HeaderService,
-    private authService: AuthService
+    private authService: AuthService,
+    private messageService: MessageService
   ) {}
   ngOnInit() {
     this.headerService.enableHeaderLogin();
@@ -53,9 +56,31 @@ export class PlanComponent {
       .subscribe(
         (response) => {
           console.log('Activation successful', response);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Subscription activated successfully',
+          });
         },
         (error) => {
-          console.error('Activation failed', error);
+          console.error("errorrrrrr :", error.error.status);
+          // console.error('Activation failed', error);
+          if (
+            error.error &&
+            error.error.message === 'User already has an active subscription'
+          ) {
+            this.messageService.add({
+              severity: 'warn',
+              summary: 'Warning',
+              detail: 'User already has an active subscription',
+            });
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: 'Subscription activation failed',
+            });
+          }
         }
       );
   }

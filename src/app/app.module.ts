@@ -14,16 +14,18 @@ import { ToastModule } from 'primeng/toast';
 import { LandingPageComponent } from './Features/landing-page/landing-page.component';
 import { LoginComponent } from './Features/login/login.component';
 import { PlanComponent } from './Features/plan/plan.component';
+import { ChangePasswordComponent } from './Features/profile-setting/change-password/change-password.component';
+import { DepositComponent } from './Features/profile-setting/deposit/deposit.component';
 import { ProfileSettingComponent } from './Features/profile-setting/profile-setting.component';
 import { RegistreComponent } from './Features/registre/registre.component';
 import { TeamComponent } from './Features/team/team.component';
+import { BottomTabNavComponent } from './Shared/components/bottom-tab-nav/bottom-tab-nav.component';
 import { FooterComponent } from './Shared/components/footer/footer.component';
 import { HeaderLoginComponent } from './Shared/components/header-login/header-login.component';
 import { HeaderComponent } from './Shared/components/header/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChangePasswordComponent } from './Features/profile-setting/change-password/change-password.component';
-import { DepositComponent } from './Features/profile-setting/deposit/deposit.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import { DepositComponent } from './Features/profile-setting/deposit/deposit.com
     PlanComponent,
     ChangePasswordComponent,
     DepositComponent,
+    BottomTabNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,9 @@ import { DepositComponent } from './Features/profile-setting/deposit/deposit.com
     DividerModule,
     FontAwesomeModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
