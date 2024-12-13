@@ -26,7 +26,7 @@ import { HeaderComponent } from './Shared/components/header/header/header.compon
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ChangePasswordComponent,
     DepositComponent,
     BottomTabNavComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -59,6 +60,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     TableModule,
     DividerModule,
     FontAwesomeModule,
+    DialogModule
   ],
   providers: [
     provideAnimationsAsync()

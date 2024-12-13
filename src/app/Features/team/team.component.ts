@@ -1,4 +1,4 @@
-import { AuthService } from './../../Core/services/Auth/auth.service';
+import { AuthService } from '../../Core/services/auth/auth.service';
 import { HeaderService } from '../../Core/services/header/header.service';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';

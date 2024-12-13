@@ -1,4 +1,4 @@
-import { AuthService } from './../../Core/services/Auth/auth.service';
+import { AuthService } from '../../Core/services/auth/auth.service';
 import { HeaderService } from '../../Core/services/header/header.service';
 import { SubscriptionService } from './../../Core/services/subscription/subscription.service';
 import { Component } from '@angular/core';

@@ -1,5 +1,5 @@
 import { MessageService } from 'primeng/api';
-import { AuthService } from './../../Core/services/Auth/auth.service';
+import { AuthService } from '../../Core/services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from '../../Core/services/header/header.service';
 import { SubscriptionPlan } from '../../Core/models/SubscriptionPlan';
@@ -31,7 +31,7 @@ export class ProfileSettingComponent implements OnInit {
       console.log('user update ', this.user);
     }
   }
-  
+
   getUser(userId: string): void {
     this.authService.getUser(userId).subscribe(
       (response) => {

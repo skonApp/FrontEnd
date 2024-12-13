@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { AuthService } from '../../../Core/services/Auth/auth.service';
+import { AuthService } from '../../../Core/services/auth/auth.service';
 
 @Component({
   selector: 'app-change-password',

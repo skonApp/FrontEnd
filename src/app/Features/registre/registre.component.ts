@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../../Core/services/Auth/auth.service';
+import { AuthService } from '../../Core/services/auth/auth.service';
 import { Component, Injectable } from '@angular/core';
 import {
   FormBuilder,

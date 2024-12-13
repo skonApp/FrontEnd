@@ -20,7 +20,7 @@ export class AuthService {
         return throwError('An error occurred; please try again later.');
       })
     );
-  }
+  } 
   // login
   signin(user: any): Observable<any> {
     return this.http.post(`${this.url}/signin`, user).pipe(
