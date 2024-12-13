@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../../../Core/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-change-password',
@@ -29,7 +30,8 @@ export class ChangePasswordComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private messageService: MessageService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.form = this.formBuilder.group(
       {
@@ -87,6 +89,9 @@ export class ChangePasswordComponent {
             summary: 'Password Updated',
             detail: 'Your password has been updated successfully',
           });
+
+          // clear localStorage + navigate to login
+          this.authService.logout();
         },
         (error) => {
           console.log('error :', error);
