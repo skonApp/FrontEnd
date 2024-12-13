@@ -23,6 +23,15 @@ export class DepositComponent {
   depositAmount: number = 1;
   paymentLink: string | null = null;
 
+  // Define the selected payment method
+  selectedPaymentMethod: string = '';
+
+  // Function to handle selecting a payment method
+  selectPaymentMethod(method: string) {
+    this.selectedPaymentMethod = method;
+    this.form.controls['paymentType'].setValue(method); // Update the form control
+  }
+
   constructor(
     private fb: FormBuilder,
     private depositService: DepositService,

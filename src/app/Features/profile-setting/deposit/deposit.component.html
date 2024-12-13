@@ -20,8 +20,43 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="form" (ngSubmit)="submitDeposit()">
+          <!-- Select Button for Payment Type -->
           <div class="mb-3">
-            <label for="enteredAmount" class="col-form-label">Amount to Deposit</label>
+            <label for="paymentType" class="form-label">Payment Method</label>
+            <div class="payment-options">
+              <div
+                class="payment-option"
+                [class.selected]="selectedPaymentMethod === 'flouci'"
+                (click)="selectPaymentMethod('flouci')"
+              >
+                <i class="bi bi-wallet2"></i>
+                <span>Flouci Payment</span>
+              </div>
+              <div
+                class="payment-option"
+                [class.selected]="selectedPaymentMethod === 'crypto'"
+                (click)="selectPaymentMethod('crypto')"
+              >
+                <i class="bi bi-currency-bitcoin"></i>
+                <span>Cryptocurrency</span>
+              </div>
+            </div>
+            <div
+              *ngIf="
+                form.controls['paymentType']?.invalid &&
+                (form.controls['paymentType']?.dirty || form.controls['paymentType']?.touched)
+              "
+              class="text-danger"
+            >
+              <small>Payment method is required.</small>
+            </div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="enteredAmount" class="col-form-label"
+              >Amount to Deposit</label
+            >
             <div class="input-group">
               <input
                 class="form-control"
@@ -41,19 +76,13 @@
               "
               class="text-danger"
             >
-              <div
-                *ngIf="form.controls['enteredAmount']?.errors?.['required']"
-              >
+              <div *ngIf="form.controls['enteredAmount']?.errors?.['required']">
                 Amount is required.
               </div>
-              <div
-                *ngIf="form.controls['enteredAmount']?.errors?.['min']"
-              >
+              <div *ngIf="form.controls['enteredAmount']?.errors?.['min']">
                 Amount must be greater than 0.
               </div>
-              <div
-                *ngIf="form.controls['enteredAmount']?.errors?.['max']"
-              >
+              <div *ngIf="form.controls['enteredAmount']?.errors?.['max']">
                 Amount must be less than 10000.
               </div>
             </div>

@@ -27,6 +27,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DialogModule } from 'primeng/dialog';
+import { SelectButtonModule } from 'primeng/selectbutton';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { DialogModule } from 'primeng/dialog';
     TableModule,
     DividerModule,
     FontAwesomeModule,
-    DialogModule
+    DialogModule,
+    SelectButtonModule
   ],
   providers: [
     provideAnimationsAsync()

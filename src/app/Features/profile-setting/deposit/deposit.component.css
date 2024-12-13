@@ -1,0 +1,46 @@
+.payment-options {
+    display: flex;
+    /* gap: 20px; */
+    justify-content: space-evenly;
+  }
+  
+  .payment-option {
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+
+  }
+  
+  .payment-option i {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .payment-option span {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .payment-option:hover {
+    border-color: #007bff;
+    background-color: #f1f8ff;
+  }
+  
+  .payment-option.selected {
+    border-color: #007bff;
+    background-color: #e7f3ff;
+  }
+  
+  .payment-option.selected i {
+    color: #007bff;
+  }
+  
+  .payment-option.selected span {
+    color: #007bff;
+  }
+  
