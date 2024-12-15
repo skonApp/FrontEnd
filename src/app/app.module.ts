@@ -28,6 +28,8 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DialogModule } from 'primeng/dialog';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { AdminDashboardComponent } from './Features/admin-dashboard/admin-dashboard.component';
+
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     ChangePasswordComponent,
     DepositComponent,
     BottomTabNavComponent,
+    AdminDashboardComponent,
     
   ],
   imports: [
@@ -63,7 +66,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     DividerModule,
     FontAwesomeModule,
     DialogModule,
-    SelectButtonModule
+    SelectButtonModule,
+    
   ],
   providers: [
     provideAnimationsAsync()

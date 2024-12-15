@@ -76,3 +76,39 @@
     flex-direction: row;
   }
 }
+
+
+/* Custom table styling */
+.custom-table .p-datatable-thead > tr > th {
+  background-color: #f8f9fa; /* Light gray header */
+  color: #495057; /* Dark text */
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.custom-table .p-datatable-tbody > tr:nth-child(even) {
+  background-color: #fdfdfd; /* Light row color */
+}
+
+.custom-table .p-datatable-tbody > tr:nth-child(odd) {
+  background-color: #f8f9fa; /* Slightly darker row color */
+}
+
+.custom-table .p-datatable-tbody > tr:hover {
+  background-color: #e9ecef; /* Hover effect */
+  transition: background-color 0.3s ease;
+}
+
+/* Card styling */
+.card-title {
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.card {
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+

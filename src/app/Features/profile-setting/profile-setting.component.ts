@@ -15,7 +15,7 @@ import { UserSubscription } from '../../Core/models/UserSubscription';
 export class ProfileSettingComponent implements OnInit {
   user: User | null = null;
   subscriptionPlan: SubscriptionPlan | null = null;
-  userSubscription: UserSubscription | null = null;
+  userSubscriptions: UserSubscription[] = [];
 
   constructor(
     private authService: AuthService,
@@ -36,9 +36,9 @@ export class ProfileSettingComponent implements OnInit {
     this.authService.getUser(userId).subscribe(
       (response) => {
         this.user = response.user;
-        this.userSubscription = response.user.activeSubscription;
+        this.userSubscriptions = response.user.activeSubscriptions;
         this.subscriptionPlan = response.user.activeSubscription.tier;
-        console.log('User Id ', response);
+        console.log('User info', this.userSubscriptions );
         this.authService.setUserData(response.user);
       },
       (error) => {

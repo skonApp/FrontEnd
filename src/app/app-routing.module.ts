@@ -8,6 +8,7 @@ import { authGuard } from './Core/auth.guard';
 import { TeamComponent } from './Features/team/team.component';
 import { PlanComponent } from './Features/plan/plan.component';
 import { ChangePasswordComponent } from './Features/profile-setting/change-password/change-password.component';
+import { AdminDashboardComponent } from './Features/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: 'home', component: LandingPageComponent, canActivate: [authGuard] },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'team', component: TeamComponent, canActivate: [authGuard] },
   { path: 'plan', component: PlanComponent, canActivate: [authGuard] },
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [authGuard] },
   {
     path: '',
     redirectTo: '/home',

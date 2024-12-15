@@ -1,0 +1,22 @@
+<p-table
+    [value]="customers"
+    [paginator]="true"
+    [rows]="5"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [rowsPerPageOptions]="[5, 10, 20]"
+>
+    <ng-template #header>
+        <tr>
+            <th style="width:25%">Name</th>
+            <th style="width:25%">Country</th>
+            <th style="width:25%">Company</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-customer>
+        <tr>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.country }}</td>
+            <td>{{ customer.company }}</td>
+        </tr>
+    </ng-template>
+</p-table>
