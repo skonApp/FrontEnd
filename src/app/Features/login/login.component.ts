@@ -22,7 +22,7 @@ export class LoginComponent {
     private messageService: MessageService
   ) {
     this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['', [Validators.required, Validators.maxLength(8),Validators.minLength(8)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -34,8 +34,8 @@ export class LoginComponent {
       return;
     }
 
-    const { email, password } = this.form.value;
-    this.authService.signin({ email, password }).subscribe(
+    const { phoneNumber, password } = this.form.value;
+    this.authService.signin({ phoneNumber, password }).subscribe(
       (response) => {
         console.log('Sign In Successful', response);
         localStorage.setItem('token', response.MyToken);
@@ -55,7 +55,7 @@ export class LoginComponent {
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
-          detail: 'Invalid email or password',
+          detail: 'Invalid phoneNumber or password',
         });
       }
     );

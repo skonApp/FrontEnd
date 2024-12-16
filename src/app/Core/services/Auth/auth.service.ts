@@ -26,7 +26,7 @@ export class AuthService {
     return this.http.post(`${this.url}/signin`, user).pipe(
       catchError((error) => {
         console.error('An error occurred', error);
-        return throwError('An error occurred; please try again later.');
+        return throwError(error);
       })
     );
   }

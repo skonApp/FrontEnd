@@ -29,7 +29,7 @@ export class RegistreComponent {
   user = {
     name: '',
     lastname: '',
-    email: '',
+    phoneNumber: '',
     password: '',
     invitationCode: '',
   };
@@ -61,7 +61,14 @@ export class RegistreComponent {
             Validators.maxLength(12),
           ],
         ],
-        email: ['', [Validators.required, Validators.email]],
+        phoneNumber: [
+          '',
+          [
+            Validators.required,
+            Validators.maxLength(8),
+            Validators.minLength(8),
+          ],
+        ],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', Validators.required],
       },
@@ -94,18 +101,17 @@ export class RegistreComponent {
       return;
     }
 
-    const { name, lastname, email, password } = this.form.value;
+    const { name, lastname, phoneNumber, password } = this.form.value;
     const user = {
       name,
       lastname,
-      email,
+      phoneNumber,
       password,
       invitationCode: this.invitationCode,
     };
 
     this.authService.signup(user).subscribe(
       (response) => {
-        console.log('Sign Up Successful', response);
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
@@ -116,13 +122,23 @@ export class RegistreComponent {
         }, 1000);
       },
       (error) => {
-        console.error('Sign Up Error', error);
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'Sign Up Error',
-        });
+        console.error('Full Error Object:', error); // Ensure this logs the error object
+      
+        if (error.status === 409) {
+          this.messageService.add({
+            severity: 'warn',
+            summary: 'Warning',
+            detail: error.error.message || 'Account already exists!',
+          });
+        } else {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'An error occurred during sign up. Please try again.',
+          });
+        }
       }
+      
     );
   }
 }

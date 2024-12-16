@@ -10,28 +10,28 @@
         <div class="card-body">
           <form (ngSubmit)="login()" [formGroup]="form">
             <div class="form-group mb-3">
-              <label for="email">Email address</label>
+              <label for="phoneNumber">Phone number</label>
               <input
-                type="email"
+                type="number"
                 class="form-control"
-                id="email"
-                formControlName="email"
-                placeholder="Enter email"
+                id="phoneNumber"
+                formControlName="phoneNumber"
+                placeholder="Enter Phone number "
                 required
               />
               <div
                 *ngIf="
-                  form.controls['email']?.invalid &&
-                  (form.controls['email']?.dirty ||
-                    form.controls['email']?.touched)
+                  form.controls['phoneNumber']?.invalid &&
+                  (form.controls['phoneNumber']?.dirty ||
+                    form.controls['phoneNumber']?.touched)
                 "
                 class="text-danger"
               >
-                <div *ngIf="form.controls['email']?.errors?.['required']">
-                  Email is required.
+                <div *ngIf="form.controls['phoneNumber']?.errors?.['required']">
+                  phoneNumber is required.
                 </div>
-                <div *ngIf="form.controls['email']?.errors?.['email']">
-                  Invalid email address.
+                <div *ngIf="form.controls['phoneNumber']?.errors?.['phoneNumber']">
+                  Invalid phoneNumber address.
                 </div>
               </div>
             </div>
