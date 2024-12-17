@@ -36,9 +36,8 @@ export class ProfileSettingComponent implements OnInit {
     this.authService.getUser(userId).subscribe(
       (response) => {
         this.user = response.user;
-        this.userSubscriptions = response.user.activeSubscriptions;
-        this.subscriptionPlan = response.user.activeSubscription.tier;
-        console.log('User info', this.userSubscriptions );
+        this.userSubscriptions = response.user.subscriptions;
+        // this.subscriptionPlan = response.user.subscription.tier;
         this.authService.setUserData(response.user);
       },
       (error) => {
