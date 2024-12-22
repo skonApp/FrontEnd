@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="spinBtn" (click)="spinWheel()" [class.disabled]="isSpinning">
+      Spin
+    </div>
+  
+    <div class="wheel" #wheel>
+      <div
+        class="number"
+        *ngFor="let segment of segments; index as i"
+        [ngStyle]="{
+          '--i': (i + 1),
+          '--clr': segment.color
+        }"
+      >
+        <span>{{ segment.label }}</span>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="spinResult" class="result">
+    You won: {{ spinResult }}!
+  </div>
+  
