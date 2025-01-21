@@ -23,7 +23,7 @@ export class ProfileSettingComponent implements OnInit {
     private headerService: HeaderService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.headerService.enableHeaderLogin();
     this.user = this.authService.getUserData();
     if (this.user) {

@@ -1,3 +1,4 @@
+import { AuthService } from './../../../Core/services/auth/auth.service';
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DepositService } from '../../../Core/services/deposit/deposit.service';
@@ -8,7 +9,6 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { AuthService } from '../../../Core/services/auth/auth.service';
 
 @Component({
   selector: 'app-deposit',
@@ -18,7 +18,6 @@ import { AuthService } from '../../../Core/services/auth/auth.service';
 })
 export class DepositComponent {
   form: FormGroup;
-
   enteredAmount: number = 1;
   depositAmount: number = 1;
   paymentLink: string | null = null;
@@ -36,15 +35,17 @@ export class DepositComponent {
     private fb: FormBuilder,
     private depositService: DepositService,
     private messageService: MessageService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {
     this.form = this.fb.group({
       enteredAmount: ['', [Validators.required, Validators.min(1)]],
     });
   }
   submitDeposit() {
+    const userId = this.authService.getUserData()._id;
     this.depositAmount = this.enteredAmount * 1000;
-    this.depositService.generatePayment(this.depositAmount).subscribe(
+    this.depositService.generatePayment(this.depositAmount, userId).subscribe(
       (response) => {
         this.paymentLink = response.result?.link;
         console.log('opened in externel window', this.paymentLink);
